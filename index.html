@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Deepfake Detector</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts for better typography -->
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🔍</span>
+                <h1>AI Deepfake Detector</h1>
+            </div>
+            <p class="subtitle">
+                Using Convolutional Neural Networks to detect manipulated images
+            </p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <h2>Upload an Image</h2>
+                <p>Select an image to analyze for deepfake manipulation</p>
+                
+                <!-- Drop Zone -->
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-content">
+                        <span class="upload-icon">📁</span>
+                        <p>Drag and drop an image here</p>
+                        <p class="or-text">or</p>
+                        <label class="file-input-label" for="fileInput">
+                            Choose File
+                        </label>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <!-- Image Preview -->
+                <div class="preview-container" id="previewContainer" style="display: none;">
+                    <h3>Selected Image:</h3>
+                    <div class="image-preview-wrapper">
+                        <img id="imagePreview" src="" alt="Preview">
+                        <button class="remove-btn" id="removeBtn" title="Remove image">✕</button>
+                    </div>
+                    <p class="file-name" id="fileName"></p>
+                </div>
+
+                <!-- Detect Button -->
+                <button class="detect-btn" id="detectBtn" disabled>
+                    <span class="btn-icon">🤖</span>
+                    Analyze Image
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>Analysis Results</h2>
+                
+                <!-- Main Result Display -->
+                <div class="result-card" id="resultCard">
+                    <div class="result-indicator" id="resultIndicator">
+                        <span class="result-icon" id="resultIcon"></span>
+                    </div>
+                    <div class="result-text">
+                        <h3 id="resultLabel">Analyzing...</h3>
+                        <p class="confidence-text">
+                            Confidence: <span id="confidenceValue">--</span>%
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Confidence Bar -->
+                <div class="confidence-bar-container">
+                    <div class="confidence-labels">
+                        <span>REAL</span>
+                        <span>FAKE</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceFill"></div>
+                        <div class="confidence-marker" id="confidenceMarker"></div>
+                    </div>
+                </div>
+
+                <!-- Analysis Details -->
+                <div class="details-section" id="detailsSection">
+                    <h4>Detection Analysis</h4>
+                    <div class="details-grid" id="detailsGrid">
+                        <!-- Details will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer">
+                    <p>⚠️ This is a demonstration model for educational purposes. 
+                    Results should not be considered definitive proof of authenticity or manipulation.</p>
+                </div>
+            </section>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <p>Analyzing image with CNN...</p>
+                    <p class="loading-detail">Extracting features and detecting artifacts</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <h2>How It Works</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="info-icon">🧠</span>
+                    <h3>CNN Analysis</h3>
+                    <p>Uses MobileNetV2 neural network to extract deep visual features from the image</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">🔬</span>
+                    <h3>Artifact Detection</h3>
+                    <p>Identifies unnatural textures, blurry edges, and manipulation artifacts</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">📊</span>
+                    <h3>Statistical Analysis</h3>
+                    <p>Examines color distributions, noise patterns, and image consistency</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">⚡</span>
+                    <h3>Real-time Results</h3>
+                    <p>Get instant predictions with confidence scores and detailed breakdown</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>AI Deepfake Detection Project | Computer Science Project</p>
+            <p>Built with Python Flask, TensorFlow, and Modern Web Technologies</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
